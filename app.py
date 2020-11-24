@@ -68,7 +68,7 @@ def crear_usuarios():
 
 @app.route('/usuarios/actualizar<num>', methods=('GET', 'POST'))
 def actualizar(num):
-    return render_template('usuarios/actualizar.html', num=db.execute('select * from usuarios where id=?',(num)).fetchone())
+    return render_template('usuarios/actualizar.html', num=db.execute('select * from usuarios where id=?',(num,)).fetchone())
 
 @app.route('/usuarios/<id>', methods=('GET', 'POST'))
 def editar(id):
@@ -84,7 +84,7 @@ def editar(id):
 @app.route('/usuarios/borrar<num>')
 def borrar(num):
     cursor=db.cursor()
-    cursor.execute('delete from usuarios where id=?',(num))
+    cursor.execute('delete from usuarios where id=?',(num,))
     db.commit()
     return redirect(url_for('usuarios'))
 
