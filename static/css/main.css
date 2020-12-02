@@ -66,6 +66,11 @@ body {
     color: #57595a;
 }
 
+.btn-success {
+    background-color: #4caf50;
+    color: white;
+}
+
 .btn-success:hover {
     background-color: #5fc863;
 }
